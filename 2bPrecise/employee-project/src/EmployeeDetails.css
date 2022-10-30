@@ -1,0 +1,54 @@
+.section {
+    padding: 80px;
+
+}
+
+.details {
+    display: flex;
+    width: 60%;
+
+}
+
+.txtinfo {
+    margin-left: 100px;
+}
+
+.reportbtn {
+    margin-left: 400px;
+    color: black;
+    background-color: steelblue;
+    border: none;
+}
+
+.subheader {
+    margin-top: 40px;
+
+}
+
+.rectangle {
+    width: 1000px;
+    height: 150px;
+    border: 2px solid black;
+
+}
+
+.content {
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+.assignbtn {
+    margin-left: 650px;
+    background-color: steelblue;
+    margin-top: 15px;
+    border: none;
+}
+
+.duedate {
+    margin-left: 670px;
+    color: black
+}
+
+.info {
+    margin-left: 40px;
+}
