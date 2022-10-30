@@ -18,23 +18,6 @@ const EmployeeDetails = () => {
     // const LastName = props.LastName;
     // const Position = props.Position;
     // const Manager = props.Manager;
-    const [listOfTasks, setListOfTasks] = React.useState([]);
-    useEffect(() => {
-        featchTasksFromDB();
-    }, [])
-
-
-    const featchTasksFromDB = () => {
-        fetch('http://localhost:5000/api/tasks')
-            .then(response => response.json())
-            .then(data => {
-                setListOfTasks(data);
-            })
-            .catch(error => {
-                console.log(error);
-            });
-    };
-
 
 
     return (
@@ -66,8 +49,8 @@ const EmployeeDetails = () => {
                 <table>
                     <tbody>
                         <tr>
-                            <td >{Task}</td>
-                            <td >{DueDtae}</td>
+                            <td >Task</td>
+                            <td >DueDtae</td>
                         </tr>
                     </tbody>
                 </table>
