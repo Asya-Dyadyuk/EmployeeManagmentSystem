@@ -1,4 +1,6 @@
-
+import React from "react";
+import { useLocation } from "react-router-dom";
+import { ReactDOM, useState, useEffect } from 'react';
 
 const Subordinates = props => {
 
@@ -8,11 +10,11 @@ const Subordinates = props => {
 
 
     return (
-        <div>
-            <tr>
-                <td >{Name}</td>
+        <div >
+            <tr className='grid-container'>
+                <td >{Name} </td>
                 <td>{LastName}</td>
-                <td><button className='assignbtn'>Assign Task</button></td>
+                <td ><button className='assignbtn'>Assign Task</button></td>
             </tr>
         </div>
     )

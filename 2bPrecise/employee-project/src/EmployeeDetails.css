@@ -27,20 +27,32 @@
 
 .rectangle {
     width: 1000px;
-    height: 150px;
     border: 2px solid black;
 
 }
 
 
 .assignbtn {
-    margin-left: 650px;
+    margin-right: 200px;
     background-color: steelblue;
-    margin-top: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     border: none;
 }
 
 
 .info {
     margin-left: 40px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 350px 350px 350px;
+    align-items: center;
+}
+
+.grid-container-tasks {
+    display: grid;
+    grid-template-columns: 100px 1000px;
+    align-items: center;
 }
