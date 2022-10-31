@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { ReactDOM, useState, useEffect } from 'react';
 import './EmployeeDetails.css'
 import TaskDetails from './TaskDetails'
+import Subordinates from './Subordinates'
 
 const EmployeeDetails = () => {
     const location = useLocation();
@@ -21,8 +22,11 @@ const EmployeeDetails = () => {
     // const Manager = props.Manager;
     const [listOfTasks, setListOfTasks] = React.useState([]);
     let tasksData = [];
+    const [listOfSubordinates, setListOfSubordinates] = React.useState([]);
+    let subordinatesData = [];
     useEffect(() => {
         featchDataFromDB();
+        featchSubordinatesFromDB();
     }, [])
 
 
@@ -37,11 +41,32 @@ const EmployeeDetails = () => {
         />)
     })
 
+    subordinatesData = listOfSubordinates.map(sub => {
+
+        return (<Subordinates
+            key={sub.ID}
+            Name={sub.Name}
+            LastName={sub.LastName}
+
+        />)
+    })
+
     const featchDataFromDB = () => {
         fetch('http://localhost:5000/api/tasks')
             .then(response => response.json())
             .then(data => {
                 setListOfTasks(data);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
+
+    const featchSubordinatesFromDB = () => {
+        fetch('http://localhost:5000/api/employee')
+            .then(response => response.json())
+            .then(data => {
+                setListOfSubordinates(data);
             })
             .catch(error => {
                 console.log(error);
@@ -81,19 +106,9 @@ const EmployeeDetails = () => {
             <p className='subheader'>My subordinates:</p>
             <div className='rectangle'>
                 <table className='content'>
-                    <tbody>
-                        <tr>
-                            <td >FirstName</td>
-                            <td>Last</td>
-                            <td><button className='assignbtn'>Assign Task</button></td>
-                        </tr>
-                    </tbody>
-
-                </table> 
-            </div> 
-
-
-
+                    <tbody>{subordinatesData}</tbody>
+                </table>
+            </div>
         </div>
 
     );
