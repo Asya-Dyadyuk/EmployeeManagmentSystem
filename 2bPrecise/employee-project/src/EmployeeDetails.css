@@ -32,10 +32,6 @@
 
 }
 
-.content {
-    margin-top: 15px;
-    margin-left: 15px;
-}
 
 .assignbtn {
     margin-left: 650px;
@@ -44,10 +40,6 @@
     border: none;
 }
 
-.duedate {
-    margin-left: 670px;
-    color: black
-}
 
 .info {
     margin-left: 40px;

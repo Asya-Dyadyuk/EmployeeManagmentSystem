@@ -2,6 +2,7 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import { ReactDOM, useState, useEffect } from 'react';
 import './EmployeeDetails.css'
+import TaskDetails from './TaskDetails'
 
 const EmployeeDetails = () => {
     const location = useLocation();
@@ -18,7 +19,34 @@ const EmployeeDetails = () => {
     // const LastName = props.LastName;
     // const Position = props.Position;
     // const Manager = props.Manager;
+    const [listOfTasks, setListOfTasks] = React.useState([]);
+    let tasksData = [];
+    useEffect(() => {
+        featchDataFromDB();
+    }, [])
 
+
+    tasksData = listOfTasks.map(t => {
+
+        return (<TaskDetails
+            key={t.ID}
+            EmployeeID={t.EmployeeID}
+            AssignData={t.AssignData}
+            DueDate={t.DueDate}
+            Task={t.Task}
+        />)
+    })
+
+    const featchDataFromDB = () => {
+        fetch('http://localhost:5000/api/tasks')
+            .then(response => response.json())
+            .then(data => {
+                setListOfTasks(data);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
 
     return (
 
@@ -35,9 +63,9 @@ const EmployeeDetails = () => {
                     </p>
                     <hr />
                     <span>Manager:
-                        <spam className="info">
+                        <span className="info">
                             {ManagerNameSelected}
-                        </spam >
+                        </span >
                         <button className='reportbtn'>Report</button></span>
 
                 </div>
@@ -45,14 +73,8 @@ const EmployeeDetails = () => {
             </div>
             <p className='subheader'>My tasks:</p>
             <div className='rectangle'>
-                {/* <span className='content'>{Task} <span className='duedate'>{DueDate}</span></span> */}
                 <table>
-                    <tbody>
-                        <tr>
-                            <td >Task</td>
-                            <td >DueDtae</td>
-                        </tr>
-                    </tbody>
+                    <tbody>{tasksData}</tbody>
                 </table>
             </div>
 
@@ -67,8 +89,8 @@ const EmployeeDetails = () => {
                         </tr>
                     </tbody>
 
-                </table>
-            </div>
+                </table> 
+            </div> 
 
 
 

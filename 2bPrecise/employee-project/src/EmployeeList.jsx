@@ -17,7 +17,7 @@ const EmployeeList = ({ }) => {
 
 
         return (<EmployeeInfoCard
-            key={emp.id}
+            key={emp.ID}
             Name={emp.Name}
             LastName={emp.LastName}
             Position={emp.Position}
@@ -30,7 +30,7 @@ const EmployeeList = ({ }) => {
 
 
     const featchEmployyesInfoFromDB = () => {
-        fetch('http://localhost:5000/api/employee',)
+        fetch('http://localhost:5000/api/employee')
             .then(response => response.json())
             .then(data => {
                 setListOfEmployees(data);
