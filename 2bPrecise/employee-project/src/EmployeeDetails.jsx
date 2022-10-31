@@ -21,10 +21,12 @@ const EmployeeDetails = () => {
     // const LastName = props.LastName;
     // const Position = props.Position;
     // const Manager = props.Manager;
+
     const [listOfTasks, setListOfTasks] = React.useState([]);
     let tasksData = [];
     const [listOfSubordinates, setListOfSubordinates] = React.useState([]);
     let subordinatesData = [];
+    const [openModal, setOpenModal] = useState(false)//for the popup
     useEffect(() => {
         featchDataFromDB();
         featchSubordinatesFromDB();
@@ -92,17 +94,22 @@ const EmployeeDetails = () => {
                     <span>Manager:
                         <span className="info">
                             {ManagerNameSelected}
-                        </span >
-                        <button className='reportbtn'>Report</button></span>
+                        </span>
+                        <button className='reportbtn'
+                            onClick={() => {
+                                setOpenModal(true);
+                            }}>Report</button>
+                            {openModal && <Modal closeModal={setOpenModal} />}
+                    </span>
 
                 </div>
 
             </div>
             <p className='subheader'>My tasks:</p>
             <div className='rectangle'>
-            <table className='content'>
-                {tasksData}
-            </table>
+                <table className='content'>
+                    {tasksData}
+                </table>
             </div>
 
 
@@ -112,7 +119,7 @@ const EmployeeDetails = () => {
                     {subordinatesData}
                 </table>
             </div>
-            <Modal />
+
 
         </div>
 
