@@ -13,12 +13,13 @@ const TaskDetails = props => {
     const Task = props.Task;
 
     return (
-        <div>
+        <tbody>
             <tr className='grid-container-tasks'>
                 <td className='content' >{Task}</td>
                 <td className='duedate'>{DueDate}</td>
             </tr>
-        </div>
+        </tbody>
+
     )
 }
 export default TaskDetails;

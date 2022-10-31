@@ -4,6 +4,7 @@ import { ReactDOM, useState, useEffect } from 'react';
 import './EmployeeDetails.css'
 import TaskDetails from './TaskDetails'
 import Subordinates from './Subordinates'
+import Modal from './Modal'
 
 const EmployeeDetails = () => {
     const location = useLocation();
@@ -47,6 +48,7 @@ const EmployeeDetails = () => {
             key={sub.ID}
             Name={sub.Name}
             LastName={sub.LastName}
+            Position={sub.Position}
 
         />)
     })
@@ -98,17 +100,20 @@ const EmployeeDetails = () => {
             </div>
             <p className='subheader'>My tasks:</p>
             <div className='rectangle'>
-                <table>
-                    <tbody>{tasksData}</tbody>
-                </table>
+            <table className='content'>
+                {tasksData}
+            </table>
             </div>
+
 
             <p className='subheader'>My subordinates:</p>
             <div className='rectangle'>
                 <table className='content'>
-                    <tbody>{subordinatesData}</tbody>
+                    {subordinatesData}
                 </table>
             </div>
+            <Modal />
+
         </div>
 
     );
