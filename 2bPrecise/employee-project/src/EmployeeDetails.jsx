@@ -5,6 +5,7 @@ import './EmployeeDetails.css'
 import TaskDetails from './TaskDetails'
 import Subordinates from './Subordinates'
 import Modal from './Modal'
+import ModalReport from './ModalReport'
 
 const EmployeeDetails = () => {
     const location = useLocation();
@@ -26,7 +27,8 @@ const EmployeeDetails = () => {
     let tasksData = [];
     const [listOfSubordinates, setListOfSubordinates] = React.useState([]);
     let subordinatesData = [];
-    const [openModal, setOpenModal] = useState(false)//for the popup
+    const [openModal, setOpenModal] = useState(false)//for the popup of Assign task
+    const [openModalReport, setOpenModalReport] = useState(false)//for the popup of Report
     useEffect(() => {
         featchDataFromDB();
         featchSubordinatesFromDB();
@@ -97,9 +99,9 @@ const EmployeeDetails = () => {
                         </span>
                         <button className='reportbtn'
                             onClick={() => {
-                                setOpenModal(true);
+                                setOpenModalReport(true);
                             }}>Report</button>
-                            {openModal && <Modal closeModal={setOpenModal} />}
+                        {openModalReport && <ModalReport closeModalReport={setOpenModalReport} />}
                     </span>
 
                 </div>

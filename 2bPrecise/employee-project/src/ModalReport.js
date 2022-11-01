@@ -3,8 +3,8 @@ import React from 'react'
 import { useState } from 'react';
 import './Modal.css';
 
-function Modal({ closeModal }) {
-    const [date, setDate] = useState();
+function ModalReport({ closeModalReport }) {
+
     const [task, setTask] = useState("");
     function handelChange(event) {
         setTask(prevFromTask => {
@@ -18,20 +18,18 @@ function Modal({ closeModal }) {
         <div className='modalBackground'>
             <div className='modalContainer'>
                 <div className="titleCloseBtn">
-                    <button onClick={() => closeModal(false)}>X</button>
+                    <button onClick={() => closeModalReport(false)}>X</button>
                 </div>
                 <div className='body'></div>
                 <textarea className='textarea'
                     onChange={handelChange}
-                    placeholder="Write your task here..." />
-                <h4 className='date'>Due Date: {date}</h4>
-                <input type="date" onChange={e => setDate(e.target.value)} />
+                    placeholder="Write your Report here..." />
                 <div className='footer'>
                     <button>Save</button>
-                    <button onClick={() => closeModal(false)}>Cancel</button>
+                    <button onClick={() => closeModalReport(false)}>Cancel</button>
                 </div>
             </div>
         </div>
     )
 }
-export default Modal
+export default ModalReport
