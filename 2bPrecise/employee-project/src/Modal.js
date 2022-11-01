@@ -41,9 +41,9 @@ function Modal({ closeModal }) {
                 </div>
                 <div className='body'></div>
                 <form className='form' onSubmit={(e) => submit(e)}>
-                    <input className='input' onChange={(e) => handelChange(e)} id="date" value={data.data} placeholder="date" type="date" />
+                    <input className='inputdate' onChange={(e) => handelChange(e)} id="date" value={data.data} placeholder="date" type="date" />
                     <br></br>
-                    <input className='input' onChange={(e) => handelChange(e)} id="textarea" value={data.textarea} placeholder="Write your task here..." type="textarea" />
+                    <input className='inputtext' onChange={(e) => handelChange(e)} id="textarea" value={data.textarea} placeholder="Write your task here..." type="textarea" />
                     <span className='footer'>
                         <button >Submit</button>
                         <button onClick={() => closeModal(false)}>Cancel</button>

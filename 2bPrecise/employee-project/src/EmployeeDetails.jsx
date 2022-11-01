@@ -17,11 +17,6 @@ const EmployeeDetails = () => {
     const ManagerIDSelected = location.state.ManagerID;
     const PictureSelected = location.state.Picture;
 
-    // const ID = props.ID;
-    // const Name = props.Name;
-    // const LastName = props.LastName;
-    // const Position = props.Position;
-    // const Manager = props.Manager;
 
     const [listOfTasks, setListOfTasks] = React.useState([]);
     let tasksData = [];

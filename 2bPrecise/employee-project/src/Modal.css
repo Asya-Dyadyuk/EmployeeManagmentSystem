@@ -76,6 +76,15 @@
     display: block;
 }
 
-.input {
+.inputdate {
     margin-bottom: 100px;
+    margin-top: 30px;
+    width: 450px;
+}
+
+.inputtext {
+    margin-bottom: 100px;
+    height: 100px;
+    width: 450px;
+
 }
