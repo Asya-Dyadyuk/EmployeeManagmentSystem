@@ -101,7 +101,7 @@ const EmployeeDetails = () => {
                             onClick={() => {
                                 setOpenModalReport(true);
                             }}>Report</button>
-                        {openModalReport && <ModalReport closeModalReport={setOpenModalReport} />}
+
                     </span>
 
                 </div>
@@ -117,12 +117,12 @@ const EmployeeDetails = () => {
 
             <p className='subheader'>My subordinates:</p>
             <div className='rectangle'>
-                <table className='content'>
+                <span className='content'>
                     {subordinatesData}
-                </table>
+                </span>
             </div>
 
-
+            {openModalReport && <ModalReport closeModalReport={setOpenModalReport} />}
         </div>
 
     );

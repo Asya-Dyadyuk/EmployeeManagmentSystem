@@ -6,6 +6,7 @@
     display: contents;
     justify-content: center;
     align-items: center;
+
 }
 
 .modalContainer {
@@ -17,6 +18,11 @@
     display: flex;
     flex-direction: column;
     padding: 25px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -150px;
+    margin-top: -150px;
 }
 
 .titleCloseBtn {
@@ -64,6 +70,12 @@
     height: 120px;
 }
 
-.date {
-    padding-top: 50px;
+
+.form {
+    padding-bottom: 100px;
+    display: block;
+}
+
+.input {
+    margin-bottom: 100px;
 }

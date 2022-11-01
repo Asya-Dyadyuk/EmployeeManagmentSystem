@@ -13,7 +13,7 @@ const Subordinates = props => {
     const [openModal, setOpenModal] = useState(false)//for the popup
 
     return (
-        <>
+        <table>
             <tbody >
                 <tr className='grid-container'>
                     <td >{Name} {LastName} </td>
@@ -24,9 +24,10 @@ const Subordinates = props => {
                         }}>Assign Task</button>
                     </td>
                 </tr>
+                {openModal && <tr><td><Modal closeModal={setOpenModal} /></td></tr>}
             </tbody>
-            {openModal && <Modal closeModal={setOpenModal} />}
-        </>
+
+        </table>
 
 
     )
